@@ -1,0 +1,33 @@
+.row {
+    display: flex;
+    
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.front-face {
+    
+    background-color: green;
+    
+}
+
+.card {
+    display:inline-block;
+    width: 15vh;
+    height: 15vh;
+    margin: 5px;
+    cursor: pointer;
+
+}
+
+.card:hover {
+    border: 1px solid black;
+}
+
+
+.color-hidden {
+    background-color: #eee;
+}

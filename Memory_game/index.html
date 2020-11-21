@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="/home/mozes721/Desktop/JS_Projects/Memory_game/styles.css">
+</head>
+<body>
+    <div class="row visible">
+    <div class="memory-game">
+        <div class="card front-face color-hidden" 
+        onclick=onCardClicked(event)></div>
+    </div>
+
+    <div class="memory-game">
+        <div class="card front-face color-hidden" 
+        onclick=onCardClicked(event)></div>
+    </div>
+
+    <div class="memory-game">
+        <div class="card front-face color-hidden" 
+        onclick=onCardClicked(event)></div>
+    </div>
+    </div>
+    <div class="row visible">
+    <div class="memory-game">
+        <div class="card front-face color-hidden" 
+        onclick=onCardClicked(event)></div>
+    </div>
+
+    <div class="memory-game">
+        <div class="card front-face color-hidden" onclick=onCardClicked(event)></div>
+    </div>
+
+    <div class="memory-game">
+        <div class="card front-face color-hidden" onclick=onCardClicked(event)></div>
+        
+    </div>
+    </div>
+    <p id="score">Score:</p>
+    <p id="failed-tries">Falied attempts:</p>
+    <script src="script.js"></script>
+</body>
+</html>  
