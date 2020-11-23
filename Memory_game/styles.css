@@ -1,9 +1,15 @@
 .row {
     display: flex;
+<<<<<<< HEAD
     width: 200px;
     height: 260px;
     perspective: 600px;
+=======
+    text-align: center;
+    
+>>>>>>> bda721f5d0585d50a022c60bd0d50a62875eda39
 }
+
 
 * {
     box-sizing: border-box;
@@ -34,6 +40,7 @@
   transform: rotateY( 180deg );
 }
 
+<<<<<<< HEAD
 .card.is-flipped {
   transform: rotateY(180deg);
 }
@@ -47,11 +54,13 @@
 
 
 
+=======
+>>>>>>> bda721f5d0585d50a022c60bd0d50a62875eda39
 
 .card {
     display:inline-block;
-    width: 15vh;
-    height: 15vh;
+    width: 100px;
+    height: 100px;
     margin: 5px;
     cursor: pointer;
 
