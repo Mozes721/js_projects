@@ -1,18 +1,52 @@
 .row {
     display: flex;
-    
+    width: 200px;
+    height: 260px;
+    perspective: 600px;
 }
 
 * {
     box-sizing: border-box;
 }
 
-
-.front-face {
-    
-    background-color: green;
-    
+.scene {
+  width: 200px;
+  height: 260px;
+  perspective: 600px;
+  transition: transform 1s;
+  transform-style: preserve-3d;
 }
+
+
+.card__face {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.card__face--front {
+  background: red;
+}
+
+.card__face--back {
+  background: blue;
+  transform: rotateY( 180deg );
+}
+
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+.memory-game {
+    display:inline-block;
+    width: 15vh;
+    height: 15vh;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+
+
 
 .card {
     display:inline-block;
@@ -28,6 +62,3 @@
 }
 
 
-.color-hidden {
-    background-color: #eee;
-}
