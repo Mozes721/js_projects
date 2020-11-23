@@ -1,23 +1,20 @@
 .row {
     display: flex;
+    text-align: center;
     
 }
+
 
 * {
     box-sizing: border-box;
 }
 
 
-.front-face {
-    
-    background-color: green;
-    
-}
 
 .card {
     display:inline-block;
-    width: 15vh;
-    height: 15vh;
+    width: 100px;
+    height: 100px;
     margin: 5px;
     cursor: pointer;
 
