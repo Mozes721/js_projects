@@ -27,9 +27,13 @@ const cardsArray = [
 ];
 
 
+
 let firstGuess = '';
 let secondGuess = '';
+let previousTarget = null;
 let count = 0;
+let delay = 1200;
+
 // Duplicate array to create a match for each card
 let gameGrid = cardsArray.concat(cardsArray);
 gameGrid.sort(() => 0.5 - Math.random());
@@ -54,10 +58,19 @@ gameGrid.forEach((item) => {
     // Set the data-name attribute of the div to the cardsArray name
     card.dataset.name = item.name;
 
+    //Front of card
+    const front = document.createElement('div');
+    front.classList.add('front');
+    
+    //Create back of the card which contains
+    const back = document.createElement('div');
+    back.classList.add('back');
     // apply the background image of the div to the cardsArray image
-    card.style.backgroundImage = `url(${item.img})`;
+    back.style.backgroundImage = `url(${item.img})`;
 
     grid.appendChild(card);
+    card.appendChild(front);
+    card.appendChild(back);
 });
 
 const match = () => {
@@ -65,6 +78,17 @@ const match = () => {
     selected.forEach((card) => {
     card.classList.add('match');
     });
+}
+
+const resetGuesses = () => {
+    firstGuess = ''
+    secondGuess = ''
+    count = 0
+
+    var selected = document.querySelectorAll('.selected')
+    selected.forEach((card) => {
+        card.classList.remove('selected');
+    })
 }
 
 
@@ -76,26 +100,34 @@ grid.addEventListener('click', function (event) {
     let clicked = event.target;
 
     // Do not allow the grid section itself to be selected; only select divs inside the grid
-    if (clicked.nodeName === 'SECTION') {
+    if (clicked.nodeName === 'SECTION' || clicked === previousTarget ||
+  clicked.parentNode.classList.contains('selected')
+  ) {
         return
     }
     if (count === 1) {
         // Assign first guess 
-        firstGuess = clicked.dataset.name;
+        firstGuess = clicked.parentNode.dataset.name;
+        console.log(firstGuess); 
         // Add class list
-        clicked.classList.add('selected');
+        clicked.parentNode.classList.add('selected');
     } else {
         // Assign second guess
-        secondGuess = clicked.dataset.name;
-        clicked.classList.add('selected');
+        secondGuess = clicked.parentNode.dataset.name;
+        console.log(secondGuess);
+        clicked.parentNode.classList.add('selected');
     }
     // IF both guesses are not empty...
     if (firstGuess !== '' && secondGuess !== '') {
         // and the first guess matches the second match...
         if (firstGuess === secondGuess){
-            match()
+            setTimeout(match, delay);
+            setTimeout(resetGuesses, delay);
+        } else {
+            setTimeout(resetGuesses, delay);
         }
     }
-  
+    // Set previus target to clicked
+    previousTarget = clicked;
   }
 });
